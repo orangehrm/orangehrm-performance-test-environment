@@ -42,7 +42,7 @@ services:
       raynet:
         ipv4_address: 172.70.0.71
     hostname: ray-server
-    mem_limit: 1g
+    mem_limit: 16g
     container_name: ray_web
 
   db:
