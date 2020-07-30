@@ -42,7 +42,7 @@ services:
       raynet:
         ipv4_address: 172.70.0.71
     hostname: ray-server
-    mem_limit: 16g
+    mem_limit: 8g
     container_name: ray_web
 
   db:
@@ -60,23 +60,8 @@ services:
         ipv4_address: 172.70.0.102
     restart: always
     hostname: orangehrm-ray-db
+    mem_limit: 8g
     container_name: ray_mysql
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    volumes:
-      - /etc/localtime:/etc/localtime
-    links:
-      - db
-    ports:
-      - "6869:80"
-    networks:
-      raynet:
-        ipv4_address: 172.70.0.20
-    environment:
-      PMA_HOST: db
-    restart: always
-    container_name: ray_phpmyadmin
 
   rabbitmq:
     image: rabbitmq:3.6-management
